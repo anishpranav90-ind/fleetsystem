@@ -1,0 +1,5 @@
+string task_id
+string robot_id
+geometry_msgs/Pose pickup_location
+geometry_msgs/Pose dropoff_location
+float32 estimated_battery_required

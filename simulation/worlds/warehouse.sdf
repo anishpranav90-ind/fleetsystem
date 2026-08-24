@@ -1,0 +1,279 @@
+<?xml version="1.0" ?>
+<sdf version="1.9">
+  <world name="edgefleet_warehouse">
+
+    <!-- Physics -->
+    <physics name="1ms" type="dart">
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1.0</real_time_factor>
+      <real_time_update_rate>1000</real_time_update_rate>
+    </physics>
+
+    <!-- Lighting -->
+    <light type="directional" name="sun">
+      <pose>0 0 10 0 0 0</pose>
+      <diffuse>0.8 0.8 0.8 1</diffuse>
+      <specular>0.2 0.2 0.2 1</specular>
+      <attenuation>
+        <range>1000</range>
+        <constant>0.9</constant>
+        <linear>0.01</linear>
+        <quadratic>0.001</quadratic>
+      </attenuation>
+      <direction>-0.5 0.1 -0.9</direction>
+    </light>
+
+    <!-- Ground plane -->
+    <include>
+      <uri>https://fuel.gazebos.org/1.0/OpenRobotics/models/Ground Plane</uri>
+    </include>
+
+    <!-- Warehouse floor — 30m x 20m -->
+    <model name="warehouse_floor">
+      <static>true</static>
+      <pose>0 0 0 0 0 0</pose>
+      <link name="floor">
+        <visual name="floor_visual">
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>30 20</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.6 0.6 0.6 1</ambient>
+            <diffuse>0.6 0.6 0.6 1</diffuse>
+          </material>
+        </visual>
+        <collision name="floor_collision">
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>30 20</size>
+            </plane>
+          </geometry>
+        </collision>
+      </link>
+    </model>
+
+    <!-- Shelving units -->
+    <model name="shelf_a1">
+      <static>true</static>
+      <pose>-6 3 0.75 0 0 0</pose>
+      <link name="shelf">
+        <visual name="shelf_visual">
+          <geometry>
+            <box><size>2 0.8 1.5</size></box>
+          </geometry>
+          <material>
+            <ambient>0.4 0.25 0.1 1</ambient>
+            <diffuse>0.4 0.25 0.1 1</diffuse>
+          </material>
+        </visual>
+        <collision name="shelf_collision">
+          <geometry>
+            <box><size>2 0.8 1.5</size></box>
+          </geometry>
+        </collision>
+      </link>
+    </model>
+
+    <model name="shelf_a2">
+      <static>true</static>
+      <pose>-6 -3 0.75 0 0 0</pose>
+      <link name="shelf">
+        <visual name="shelf_visual">
+          <geometry>
+            <box><size>2 0.8 1.5</size></box>
+          </geometry>
+          <material>
+            <ambient>0.4 0.25 0.1 1</ambient>
+            <diffuse>0.4 0.25 0.1 1</diffuse>
+          </material>
+        </visual>
+        <collision name="shelf_collision">
+          <geometry>
+            <box><size>2 0.8 1.5</size></box>
+          </geometry>
+        </collision>
+      </link>
+    </model>
+
+    <model name="shelf_b1">
+      <static>true</static>
+      <pose>0 3 0.75 0 0 0</pose>
+      <link name="shelf">
+        <visual name="shelf_visual">
+          <geometry>
+            <box><size>2 0.8 1.5</size></box>
+          </geometry>
+          <material>
+            <ambient>0.4 0.25 0.1 1</ambient>
+            <diffuse>0.4 0.25 0.1 1</diffuse>
+          </material>
+        </visual>
+        <collision name="shelf_collision">
+          <geometry>
+            <box><size>2 0.8 1.5</size></box>
+          </geometry>
+        </collision>
+      </link>
+    </model>
+
+    <model name="shelf_b2">
+      <static>true</static>
+      <pose>0 -3 0.75 0 0 0</pose>
+      <link name="shelf">
+        <visual name="shelf_visual">
+          <geometry>
+            <box><size>2 0.8 1.5</size></box>
+          </geometry>
+          <material>
+            <ambient>0.4 0.25 0.1 1</ambient>
+            <diffuse>0.4 0.25 0.1 1</diffuse>
+          </material>
+        </visual>
+        <collision name="shelf_collision">
+          <geometry>
+            <box><size>2 0.8 1.5</size></box>
+          </geometry>
+        </collision>
+      </link>
+    </model>
+
+    <!-- Packing stations -->
+    <model name="packing_station_1">
+      <static>true</static>
+      <pose>10 5 0.5 0 0 0</pose>
+      <link name="station">
+        <visual name="station_visual">
+          <geometry>
+            <box><size>1.5 1.5 1.0</size></box>
+          </geometry>
+          <material>
+            <ambient>0.1 0.5 0.1 1</ambient>
+            <diffuse>0.1 0.5 0.1 1</diffuse>
+          </material>
+        </visual>
+        <collision name="station_collision">
+          <geometry>
+            <box><size>1.5 1.5 1.0</size></box>
+          </geometry>
+        </collision>
+      </link>
+    </model>
+
+    <model name="packing_station_2">
+      <static>true</static>
+      <pose>10 0 0.5 0 0 0</pose>
+      <link name="station">
+        <visual name="station_visual">
+          <geometry>
+            <box><size>1.5 1.5 1.0</size></box>
+          </geometry>
+          <material>
+            <ambient>0.1 0.5 0.1 1</ambient>
+            <diffuse>0.1 0.5 0.1 1</diffuse>
+          </material>
+        </visual>
+        <collision name="station_collision">
+          <geometry>
+            <box><size>1.5 1.5 1.0</size></box>
+          </geometry>
+        </collision>
+      </link>
+    </model>
+
+    <model name="packing_station_3">
+      <static>true</static>
+      <pose>10 -5 0.5 0 0 0</pose>
+      <link name="station">
+        <visual name="station_visual">
+          <geometry>
+            <box><size>1.5 1.5 1.0</size></box>
+          </geometry>
+          <material>
+            <ambient>0.1 0.5 0.1 1</ambient>
+            <diffuse>0.1 0.5 0.1 1</diffuse>
+          </material>
+        </visual>
+        <collision name="station_collision">
+          <geometry>
+            <box><size>1.5 1.5 1.0</size></box>
+          </geometry>
+        </collision>
+      </link>
+    </model>
+
+    <!-- Charging stations -->
+    <model name="charging_station_1">
+      <static>true</static>
+      <pose>-12 7 0.3 0 0 0</pose>
+      <link name="charger">
+        <visual name="charger_visual">
+          <geometry>
+            <box><size>1 0.6 0.6</size></box>
+          </geometry>
+          <material>
+            <ambient>0.1 0.3 0.8 1</ambient>
+            <diffuse>0.1 0.3 0.8 1</diffuse>
+          </material>
+        </visual>
+        <collision name="charger_collision">
+          <geometry>
+            <box><size>1 0.6 0.6</size></box>
+          </geometry>
+        </collision>
+      </link>
+    </model>
+
+    <!-- Walls -->
+    <model name="north_wall">
+      <static>true</static>
+      <pose>0 10 0.5 0 0 0</pose>
+      <link name="wall">
+        <visual name="wall_visual">
+          <geometry>
+            <box><size>30 0.2 1</size></box>
+          </geometry>
+          <material>
+            <ambient>0.5 0.5 0.5 1</ambient>
+            <diffuse>0.5 0.5 0.5 1</diffuse>
+          </material>
+        </visual>
+        <collision name="wall_collision">
+          <geometry>
+            <box><size>30 0.2 1</size></box>
+          </geometry>
+        </collision>
+      </link>
+    </model>
+
+    <model name="south_wall">
+      <static>true</static>
+      <pose>0 -10 0.5 0 0 0</pose>
+      <link name="wall">
+        <visual name="wall_visual">
+          <geometry>
+            <box><size>30 0.2 1</size></box>
+          </geometry>
+          <material>
+            <ambient>0.5 0.5 0.5 1</ambient>
+            <diffuse>0.5 0.5 0.5 1</diffuse>
+          </material>
+        </visual>
+        <collision name="wall_collision">
+          <geometry>
+            <box><size>30 0.2 1</size></box>
+          </geometry>
+        </collision>
+      </link>
+    </model>
+
+    <!-- ROS 2 bridge plugin -->
+    <plugin filename="gz-sim-ros2-system" name="gz::sim::systems::ros">
+      <remapping>~/odom:=/amr01/odom</remapping>
+    </plugin>
+
+  </world>
+</sdf>
